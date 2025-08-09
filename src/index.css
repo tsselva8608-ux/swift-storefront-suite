@@ -39,20 +39,21 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Brand design tokens */
+    --brand: 262 83% 58%; /* signature violet */
+    --brand-contrast: 210 40% 98%;
+    --brand-2: 286 76% 60%; /* gradient end */
+    --gradient-brand: radial-gradient(1200px 600px at 50% 0%, hsl(var(--brand)/0.25), transparent 60%), linear-gradient(135deg, hsl(var(--brand)), hsl(var(--brand-2)));
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--brand)/0.25);
+    --shadow-glow: 0 0 40px hsl(var(--brand)/0.35);
   }
 
   .dark {
@@ -91,6 +92,11 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Brand tokens in dark mode */
+    --brand: 262 83% 68%;
+    --brand-contrast: 0 0% 100%;
+    --brand-2: 286 76% 65%;
   }
 }
 
@@ -102,4 +108,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Global utility classes bound to tokens */
+  .bg-gradient-brand { background-image: var(--gradient-brand); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
 }
